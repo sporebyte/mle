@@ -5,21 +5,20 @@
 ```
 .
 ├── src/
-│   ├── preprocess.py   
-│   ├── tokens.py       
+│   ├── preprocess.py   # Canonicalize and Deduplicate Dataset
+│   ├── tokens.py       # Tokenize the Dataset inputs to create Vocabulary
 │   ├── dataset.py      
-│   ├── model.py       
-│   ├── train.py        
-│   ├── generate.py
-│   ├── plot_history.py     
-│   └── stats.py        
+│   ├── model.py        # LSTM RNN model initialization
+│   ├── train.py        # Training script
+│   ├── generate.py     # Generate de novo SMILEs based on training output 
+│   ├── plot_history.py   # Plot model performance  
+│   └── stats.py          # Plot input Dataset stats
 │   └── outputs/
 ├── data/
 │   ├── smiles_clean.txt
-│   └── smiles_train.txt
+│   └── smiles_train.txt    # Dataset of ~1.27M SMILEs
 ├── outputs/
-├── environment.yml     
-├── train.slurm         
+├── environment.yml         # conda env configs
 └── README.md
 ```
 
@@ -39,12 +38,11 @@ The approach of this project borrows the basis of the following papers:
 
 ### Theoretical Background
 
-LSTM RNN is a specialized neural network for sequential data. 
-
-
-LSTMs enable backpropagation of the error through time-steps hence helping preserve them through feedback connections that pass on information of as it propagates forward.
+LSTM RNN is a specialized neural network for sequential data. LSTMs enable backpropagation of the error through time-steps hence helping preserve them through feedback connections that pass on information of as it propagates forward.
 
 ![image info](./assets/gate_of_lstm.webp)
+
+*Source: geeksforgeeks.org*
 
 The information which is added or removed to the cell state is regulated by structures called **gates**. These consist of a neural network layer and a pointwise operation.
 
@@ -57,6 +55,8 @@ The **output gate** is a sigmoid layer that determines which information from th
 This **hidden state** is then passed to the next time step and can also be used for generating the output of the network.
 
 ### Pre-processing
+
+The input molecules were pre-processed by using the `rdkit` python module that contains a function to select for cannonical SMILE molecules. A short script to remove any duplicates was also utilized.
 
 ### LSTM Training
 
@@ -79,9 +79,7 @@ This **hidden state** is then passed to the next time step and can also be used 
 
 ## Evaluation Metrics: Fréchet ChemNet Distance (FCD)
 
-## Extras 1: Metaheuristic Hyperparameter Improvement
-
-## Extras 2: Best-of visualizations and insights
+## Extras 1: Best-of visualizations and insights
 
 ## Resources
 
@@ -97,10 +95,13 @@ https://www.geeksforgeeks.org/deep-learning/deep-learning-introduction-to-long-s
 
 https://hunterheidenreich.com/notes/chemistry/molecular-representations/notations/atom-in-smiles-tokenization/ 
 
+https://docs.pytorch.org/docs/2.12/generated/torch.nn.LSTM.html
+
 ## AI-use disclaimer
 
-Claude 
-Opus 4.7 on various levels of effort
+Claude AI
+
+Opus 4.7 
 
 Uses:
 - code proofreading and bug fixes
