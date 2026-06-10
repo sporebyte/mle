@@ -81,6 +81,8 @@ This **hidden state** is then passed to the next time step and can also be used 
 
 The input molecules were pre-processed by using the `rdkit` python module that contains a function to select for cannonical SMILE molecules. A short script to remove any duplicates was also utilized.
 
+As all molecules from the dataset were cannonical and had no duplicates, the output dataset was the same one as the dataset received.
+
 ### LSTM Training
 
 
@@ -97,24 +99,26 @@ The input molecules were pre-processed by using the `rdkit` python module that c
 | Dropout rate           | 0.2                    | Literature: commonly 0.1 - 0.5.                 |  
 
 
-
-### Molecule Generation
-
 ## Evaluation Metrics: Fréchet ChemNet Distance (FCD)
 
-FCD: 0.38912426454143656
+Upon generating 10,000 new molecules, the `/outputs/submission.txt` dataset was evaluated in the `evaluation_notebook.ipynb` and had the following results:
 
-Validity: 1.0
-Uniqueness: 1.0
-Novelty: 0.9668
+| Parameter | Value | 
+|-|-|
+| FCD | 0.3891 |          
+| Validity | 1.0 |          
+| Uniqueness | 1.0 |          
+| Novelty | 0.9668 |          
 
 ## Visualizations and insights
 
 ![image info](./assets/raw_stats.png)
 
-![image info](./assets/properties.png)
-
 ![image info](./assets/functional_groups.png)
+
+### Lipinski properties
+
+![image info](./assets/properties.png)
 
 ## Resources
 
