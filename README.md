@@ -44,14 +44,14 @@ conda activate mle
 # 2. Place the provided training data at data/smiles_train.txt, then:
 python src/preprocess.py    # writes data/smiles_clean.txt
 python src/train.py         # writes outputs/checkpoints/best.pt + outputs/tokenizer.json
-python src/generate.py      # writes outputs/submission.txt (10k SMILES)
+python src/generate.py      # writes outputs/submission.txt 
 # Optional temp sweeping:
 # python src/generate.py --temperature [x] --output outputs/submission_[x].txt
 
 # 3. (Optional) generate plots and analysis
 python src/plot_history.py  # outputs/loss_curve.png
 python src/stats.py         # outputs/raw_stats.png
-python src/analyze.py       # outputs/properties.png, outputs/functional_groups.png
+python src/analyze.py       # outputs/properties.png + outputs/functional_groups.png
 ```
 
 
