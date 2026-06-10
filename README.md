@@ -83,6 +83,11 @@ The **output gate** is a sigmoid layer that determines which information from th
 
 This **hidden state** is then passed to the next time step and can also be used for generating the output of the network.
 
+As a 2-layer LSTM, our model architecture is:
+
+![image info](./assets/2-layer-lstm.png)
+
+
 ### Pre-processing
 
 The input molecules were pre-processed by using the `rdkit` python module that contains a function to select for cannonical SMILE molecules. A short script to remove any duplicates was also utilized.
