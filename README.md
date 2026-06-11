@@ -4,7 +4,7 @@
 
 https://github.com/sporebyte/mle-ss26
 
-**Sonja Vukotic**
+**Sonja V**
 
 > **Final result**: FCD = 0.3891, Validity = 1.0, Uniqueness = 1.0, Novelty = 0.9983 (T = 1.0)
 
